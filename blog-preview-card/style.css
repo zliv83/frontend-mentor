@@ -1,0 +1,180 @@
+@layer reset, base, utilities, layout;
+
+@layer reset {
+  *, *::before, *::after {
+	box-sizing :border-box;
+	margin     :0;
+	padding    :0
+  }
+  
+}
+
+@layer base {
+  /* Fonts */
+  @font-face {
+	font-family :'Figtree';
+	src         :url('/assets/fonts/Figtree-VariableFont_wght.ttf') format('truetype');
+	font-weight :100 900;
+  }
+  
+  @font-face {
+	font-family :'Figtree';
+	src         :url('/assets/fonts/Figtree-Italic-VariableFont_wght.ttf') format('truetype');
+	font-weight :100 900;
+	font-style  :italic;
+  }
+  
+  :root {
+	--figtree     :Figtree, sans-serif;
+	font-size     :16px;
+	/* Spacing */
+	--spacing-50  :0.25rem;
+	--spacing-100 :0.5rem;
+	--spacing-150 :0.75rem;
+	--spacing-200 :1.5rem;
+	
+	
+	/* Colors */
+	--yellow      :hsl(47 88% 63%);
+	--white       :hsl(0 0% 100%);
+	--gray-500    :hsl(0 0% 42%);
+	--grey-950    :hsl(0 0% 7%);
+	
+	--desktop     :1440px;
+	--mobile      :375px;
+  }
+}
+
+@layer utilities {
+  :root {
+	--text-size-600 :var(--spacing-200);
+	--text-size-500 :1.25rem;
+	--text-size-400 :1rem;
+	--text-size-300 :0.875rem;
+	--text-size-200 :0.75rem;
+  }
+  
+  .text-1 {
+	font-family :var(--figtree);
+	font-size   :var(--spacing-200);
+	line-height :1.5;
+	font-weight :800;
+  }
+  
+  
+  .text-2 {
+	font-family :var(--figtree);
+	font-size   :1rem;
+	font-weight :500;
+	line-height :1.5;
+  }
+  
+  .text-3 {
+	font-family :var(--figtree);
+	font-size   :var(--text-size-300);
+	font-weight :500;
+	line-height :1.5;
+  }
+  
+  .text-3-bold {
+	font-family :var(--figtree);
+	font-size   :var(--text-size-300);
+	font-weight :800;
+	line-height :1.5;
+  }
+  
+  .text-light {
+	color :var(--gray-500);
+  }
+  
+  .text-dark {
+	color :var(--grey-950)
+  }
+}
+
+@layer layout {
+  body {
+	background-color :var(--yellow);
+	min-block-size   :100vh;
+	display          :flex;
+	justify-content  :center;
+	align-items      :center;
+  }
+  
+  .card {
+	border           :1px solid var(--grey-950);
+	max-inline-size  :384px;
+	border-radius    :20px;
+	padding          :var(--spacing-200);
+	background-color :var(--white);
+	display          :flex;
+	flex-direction   :column;
+	box-shadow       :8px 8px #000000;
+	gap              :var(--spacing-200);
+	
+	@media (width < 375px) {
+	  max-inline-size :323px;
+	}
+	
+	.illustration-article {
+	  inline-size   :100%;
+	  block-size    :auto;
+	  border-radius :10px;
+	}
+	
+	.lower-card {
+	  display        :flex;
+	  flex-direction :column;
+	  gap            :var(--spacing-150);
+	  
+	  .learning-block {
+		padding-inline   :var(--spacing-150);
+		padding-block    :var(--spacing-50);
+		background-color :var(--yellow);
+		border-radius    :4px;
+		text-align       :center;
+		inline-size      :fit-content;
+		
+		
+	  }
+	  
+	  .published, .learning-block {
+		@media (width < 375px) {
+		  font-size :var(--text-size-200);
+		}
+	  }
+	  
+	  .title {
+		@media (width < 375px) {
+		  font-size :var(--text-size-500);
+		}
+	  }
+	  
+	  .paragraph-text, .author {
+		@media (width < 375px) {
+		  font-size :var(--text-size-300);
+		}
+	  }
+	  
+	  .title:hover {
+		color  :var(--yellow);
+		cursor :pointer;
+	  }
+	  
+	  .author-block {
+		display     :flex;
+		gap         :var(--spacing-150);
+		align-items :center;
+		
+		.avatar {
+		  inline-size   :32px;
+		  block-size    :32px;
+		  background    :url('assets/images/image-avatar.webp') center / contain;
+		  border-radius :50%;
+		  
+		}
+	  }
+	  
+	}
+  }
+}
