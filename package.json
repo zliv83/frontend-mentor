@@ -1,0 +1,14 @@
+{
+  "name": "frontend-mentor",
+  "module": "index.ts",
+  "devDependencies": {
+    "@types/bun": "latest",
+    "prettier": "^3.8.1",
+    "prettier-plugin-css-order": "^2.2.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "private": true,
+  "type": "module"
+}

@@ -1,1 +1,5 @@
 .DS_Store
+CLAUDE.md
+bun.lock
+.prettierrc
+node_modules/

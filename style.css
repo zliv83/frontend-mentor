@@ -1,0 +1,77 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: hsl(0, 0%, 79%);
+  padding: 3rem 1.5rem;
+  min-height: 100vh;
+  color: #1a1a2e;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+}
+
+header {
+  margin: 0 auto 3rem;
+  max-width: 800px;
+  text-align: center;
+}
+
+header h1 {
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+}
+
+header p {
+  color: #555;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+.card {
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  background: hsl(0, 0%, 84%);
+  padding: 1.5rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.card h2 {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.card p {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.tag {
+  display: inline-block;
+  margin-top: 0.75rem;
+  border-radius: 999px;
+  background: hsl(189, 94%, 43%);
+  padding: 0.2rem 0.6rem;
+  color: hsl(0, 0%, 0%);
+  font-size: 0.75rem;
+}

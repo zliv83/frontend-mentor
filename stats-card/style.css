@@ -1,0 +1,197 @@
+@layer reset, base, utilities, components;
+
+@layer reset {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@layer base {
+  :root {
+    /* Colors */
+    --navy: hsl(233 47% 7%);
+    --blue: hsl(244 37% 16%);
+    --purple: hsl(277 64% 61%);
+    --white-400: hsl(0 0% 100%);
+    --white-500: hsl(0 0% 100% / 0.75);
+    --white-600: hsl(0 0% 100% / 0.6);
+
+    /* Fonts */
+    --font-inter: Inter, sans-serif;
+    --font-deca: 'Lexend Deca', sans-serif;
+
+    /* Typography */
+    --text-5: clamp(0.7502rem, 0.8626rem + -0.1249vw, 0.8333rem);
+    --text-4: 0.9375rem;
+    --text-3: clamp(1.2rem, 1.1532rem + 0.1998vw, 1.333rem);
+    --text-2: clamp(1.44rem, 1.3214rem + 0.5061vw, 1.7769rem);
+    --text-1: clamp(1.728rem, 1.5024rem + 0.9624vw, 2.3686rem);
+
+    /* Spacing */
+    --space-100: 0.5rem;
+    --space-300: 1.5rem;
+    --space-400: 2rem;
+    --space-500: 2.5rem;
+    --space-800: 4rem;
+    --space-900: 4.5rem;
+    --space-1000: 5rem;
+
+    /* Screen Size */
+    --desktop: 1140px;
+    --tablet: 768px;
+    --mobile: 375px;
+  }
+}
+
+@layer components {
+  body {
+    background-color: var(--navy);
+    padding: 1.2rem;
+    min-block-size: 100vh;
+    text-align: center;
+
+    @media (width >= 768px) {
+      padding-inline: 6.25rem;
+      text-align: start;
+    }
+  }
+
+  .stats-card {
+    display: grid;
+    border-radius: var(--space-100);
+    background-color: var(--blue);
+    inline-size: 100%;
+    max-inline-size: 1128px;
+
+    @media (width >= 1140px) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .image-container {
+      position: relative;
+      border-radius: var(--space-100) var(--space-100) 0 0;
+      background: url('images/image-header-mobile.jpg') no-repeat center / cover;
+      min-block-size: 240px;
+
+      @media (width >= 768px) {
+        min-block-size: 442px;
+      }
+
+      &::after {
+        position: absolute;
+        mix-blend-mode: multiply;
+        inset: 0;
+        border-radius: inherit;
+        background:
+          linear-gradient(var(--purple), var(--purple)), rgb(0 0 0 / 0.3);
+        content: '';
+      }
+
+      @media (width >= 1140px) {
+        order: 2;
+        border-radius: 0 var(--space-100) var(--space-100) 0;
+        background-image: url('images/image-header-desktop.jpg');
+      }
+    }
+
+    .stats-container {
+      display: grid;
+      gap: var(--space-500);
+      padding-inline: var(--space-400);
+      padding-block: var(--space-300);
+
+      @media (width >= 768px) {
+        gap: var(--space-900);
+        padding-inline: var(--space-1000);
+        padding-block: var(--space-800);
+      }
+
+      @media (width >= 1140px) {
+        order: 1;
+      }
+
+      .description-group {
+        display: grid;
+        gap: var(--space-100);
+
+        @media (width >= 768px) {
+          gap: var(--space-300);
+        }
+      }
+
+      .stats-group {
+        display: grid;
+        gap: var(--space-400);
+        list-style: none;
+
+        @media (width >= 768px) {
+          grid-template-columns: repeat(3, 1fr);
+          gap: var(--space-800);
+        }
+
+        .stat-description {
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+}
+
+@layer utilities {
+  .flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .font-base {
+    font-weight: bold;
+    line-height: 1.25;
+    font-family: var(--font-inter);
+  }
+
+  .text-1 {
+    font-size: var(--text-1);
+  }
+
+  .text-2 {
+    font-size: var(--text-2);
+  }
+
+  .text-3 {
+    font-size: var(--text-3);
+    line-height: 1.2;
+  }
+
+  .text-4 {
+    font-weight: 400;
+    font-size: var(--text-4);
+    line-height: 1.65;
+  }
+
+  .text-5 {
+    font-weight: 400;
+    font-size: var(--text-5);
+    line-height: 2;
+    font-family: var(--font-deca);
+    letter-spacing: 1px;
+  }
+
+  .text-white {
+    color: var(--white-400);
+  }
+
+  .text-white-500 {
+    color: var(--white-500);
+  }
+
+  .text-white-600 {
+    color: var(--white-600);
+  }
+
+  .text-purple {
+    color: var(--purple);
+  }
+}

@@ -1,2 +1,3 @@
-# frontend-mentor
+# Frontend Mentor Solutions
+
 My Frontend Mentor Solutions
